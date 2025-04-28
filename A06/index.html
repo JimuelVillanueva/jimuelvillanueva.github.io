@@ -9,30 +9,35 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 
-  <style>
-    .card {
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .zoom-container {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .zoom-container img {
-      transition: transform 0.3s ease;
-      width: 100%;
-      /* Ensure images fit the card */
-    }
-
-    .zoom-container:hover img {
-      transform: scale(1.1);
-    }
-  </style>
+    <style>
+      .card {
+        transition: transform 0.3s ease;
+      }
+  
+      .zoom-container {
+        overflow: hidden;
+        position: relative;
+      }
+  
+      .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+  
+      .zoom-container:hover .card-overlay {
+        opacity: 1;
+      }
+  
+      .card img {
+        width: 100%;
+        height: auto;
+      }
+    </style>
 
   <script>
     function inquireMouseEnter() {
@@ -101,7 +106,8 @@
         <div>These heroes on every card are my top 8 favorite heroes in League of Legends.</div>
         <div>These heroes are overpowered when they reach their power spike.</div>
         <div>I'm also confident when I'm using these heroes.</div>
-        <div class="mt-3 text-center" onclick="hideFooter()" style="color: black; cursor: pointer;">About My Gallery
+        <div class="mt-3 text-center">
+          <button onclick="hideFooter()" class="btn btn-primary" style="cursor: pointer;">More</button>
         </div>
       </div>
     </div>
@@ -110,24 +116,44 @@
   <div class="container-fluid p-3" id="footerShow" style="background-color: #f8f9fa; color: #343a40;">
     <div class="row">
       <div class="col">
-        <div class="text-center" onclick="showFooter()" style="color: black; cursor: pointer;">About My Gallery</div>
+        <div class="text-center">
+          <button onclick="showFooter()" class="btn btn-primary" style="cursor: pointer;">More</button>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <script>
-        var pictures = [
-          "../img/Yasuo.jpg",
-          "../img/Zed.jpg",
-          "../img/Master Yi.jpg",
-          "../img/Vladimir.jpg",
-          "../img/Katarina.jpg",
-          "../img/Leona.jpg",
-          "../img/Illaoi.jpg",
-          "../img/Yorick.jpg"
-        ];
-        var rowElement = document.getElementById("container-row");
-        for (var i = 0; i < pictures.length; i++) {
-          rowElement.innerHTML += '<div class="col-6 col-sm-6 col-md-4 col-lg-3"><div class="card my-3 shadow rounded-5 overflow-hidden"><div class="zoom-container"><img src="' + pictures[i] + '" class="card-img-top" alt=""></div></div></div>';
-        }
-      </script>
+      <body>
+      
+        <div class="container my-3">
+          <div class="row" id="container-row">
+            <script>
+              var pictures = [
+                { default: "../img/Yasuo.jpg", transformed: "../img/Yasuo-transformed.jpg" },
+                { default: "../img/Zed.jpg", transformed: "../img/Zed-transformed.jpg" },
+                { default: "../img/Master Yi.jpg", transformed: "../img/Master-Yi-transformed.jpg" },
+                { default: "../img/Vladimir.jpg", transformed: "../img/Vladimir-transformed.jpg" },
+                { default: "../img/Katarina.jpg", transformed: "../img/Katarina-transformed.jpg" },
+                { default: "../img/Leona.jpg", transformed: "../img/Leona-transformed.jpg" },
+                { default: "../img/Illaoi.jpg", transformed: "../img/Illaoi-transformed.jpg" },
+                { default: "../img/Yorick.jpg", transformed: "../img/Yorick-transformed.jpg" }
+              ];
+              var rowElement = document.getElementById("container-row");
+              for (var i = 0; i < pictures.length; i++) {
+                rowElement.innerHTML += `
+                  <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card my-3 shadow rounded-5 overflow-hidden">
+                      <div class="zoom-container">
+                        <img src="${pictures[i].default}" class="card-img-top" alt="Default Image">
+                        <div class="card-overlay">
+                          <img src="${pictures[i].transformed}" class="card-img-top" alt="Transformed Image">
+                        </div>
+                      </div>
+                    </div>
+                  </div>`;
+              }
+            </script>
+          </div>
+        </div>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.

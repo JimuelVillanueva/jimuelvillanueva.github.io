@@ -22,6 +22,31 @@
         .card:hover {
             transform: scale(1.05);
         }
+
+
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .zoom-container:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 
@@ -37,7 +62,13 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card my-3 shadow rounded-5">
-                    <img src="../img/Yasuo.jpg" class="card-img-top img-fluid" alt="Yasuo">
+                    <div class="zoom-container">
+                        <img src="../img/Yasuo.jpg" class="card-img-top img-fluid" alt="Yasuo">
+                        <div class="card-overlay">
+                            <img src="../img/Yasuo-transformed.jpg" class="card-img-top img-fluid"
+                                alt="Yasuo Transformed">
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Yasuo</h5>
                         <p class="card-text">Yasuo is a skilled swordsman who wields the wind to defeat his enemies.</p>
@@ -47,7 +78,12 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card my-3 shadow rounded-5">
-                    <img src="../img/Zed.jpg" class="card-img-top img-fluid" alt="Zed">
+                    <div class="zoom-container">
+                        <img src="../img/Zed.jpg" class="card-img-top img-fluid" alt="Zed">
+                        <div class="card-overlay">
+                            <img src="../img/Zed-transformed.jpg" class="card-img-top img-fluid" alt="Zed Transformed">
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Zed</h5>
                         <p class="card-text">Zed is a master of shadows, using his abilities to eliminate foes.</p>
@@ -57,7 +93,13 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card my-3 shadow rounded-5">
-                    <img src="../img/Master Yi.jpg" class="card-img-top img-fluid" alt="Master Yi">
+                    <div class="zoom-container">
+                        <img src="../img/Master Yi.jpg" class="card-img-top img-fluid" alt="Master Yi">
+                        <div class="card-overlay">
+                            <img src="../img/Master-Yi-transformed.jpg" class="card-img-top img-fluid"
+                                alt="Master Yi Transformed">
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Master Yi</h5>
                         <p class="card-text">Master Yi is a Wuju master who uses his speed and agility to defeat
@@ -68,7 +110,13 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card my-3 shadow rounded-5">
-                    <img src="../img/Katarina.jpg" class="card-img-top img-fluid" alt="Katarina">
+                    <div class="zoom-container">
+                        <img src="../img/Katarina.jpg" class="card-img-top img-fluid" alt="Katarina">
+                        <div class="card-overlay">
+                            <img src="../img/Katarina-transformed.jpg" class="card-img-top img-fluid"
+                                alt="Katarina Transformed">
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Katarina</h5>
                         <p class="card-text">Katarina is a deadly assassin known for her agility and lethal throwing
@@ -79,7 +127,13 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card my-3 shadow rounded-5">
-                    <img src="../img/Leona.jpg" class="card-img-top img-fluid" alt="Leona">
+                    <div class="zoom-container">
+                        <img src="../img/Leona.jpg" class="card-img-top img-fluid" alt="Leona">
+                        <div class="card-overlay">
+                            <img src="../img/Leona-transformed.jpg" class="card-img-top img-fluid"
+                                alt="Leona Transformed">
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Leona</h5>
                         <p class="card-text">Leona is a tanky support champion who excels at protecting her allies.</p>
@@ -89,7 +143,13 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card my-3 shadow rounded-5">
-                    <img src="../img/Vladimir.jpg" class="card-img-top img-fluid" alt="Vladimir">
+                    <div class="zoom-container">
+                        <img src="../img/Vladimir.jpg" class="card-img-top img-fluid" alt="Vladimir">
+                        <div class="card-overlay">
+                            <img src="../img/Vladimir-transformed.jpg" class="card-img-top img-fluid"
+                                alt="Vladimir Transformed">
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Vladimir</h5>
                         <p class="card-text">Vladimir is a blood mage who manipulates the life force of his enemies to
@@ -100,7 +160,13 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card my-3 shadow rounded-5">
-                    <img src="../img/Yorick.jpg" class="card-img-top" alt="Yorick">
+                    <div class="zoom-container">
+                        <img src="../img/Yorick.jpg" class="card-img-top img-fluid" alt="Yorick">
+                        <div class="card-overlay">
+                            <img src="../img/Yorick-transformed.jpg" class="card-img-top img-fluid"
+                                alt="Yorick Transformed">
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Yorick</h5>
                         <p class="card-text">Yorick is a grave digger who summons ghouls, making him a unique champion.
@@ -111,7 +177,13 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card my-3 shadow rounded-5">
-                    <img src="../img/Illaoi.jpg" class="card-img-top" alt="Illaoi">
+                    <div class="zoom-container">
+                        <img src="../img/Illaoi.jpg" class="card-img-top img-fluid" alt="Illaoi">
+                        <div class="card-overlay">
+                            <img src="../img/Illaoi-transformed.jpg" class="card-img-top img-fluid"
+                                alt="Illaoi Transformed">
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Illaoi</h5>
                         <p class="card-text">Illaoi uses the strength of Nagakabouros to test the faith of her enemies.
