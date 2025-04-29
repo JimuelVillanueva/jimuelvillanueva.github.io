@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <link rel="icon" href="img/Xros.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Profile</title>
@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
+        body {
+            background-color: #92a7bd;
+        }
+
         .profile-image1 {
             width: 350px;
             height: 350px;
@@ -20,6 +24,24 @@
 
         .profile-image1:hover {
             transform: scale(1.1);
+        }
+
+        .zoom-education,
+        .zoom-email,
+        .zoom-account {
+            transition: transform 0.3s ease;
+        }
+
+        .zoom-education:hover {
+            transform: scale(1.05);
+        }
+
+        .zoom-email:hover {
+            transform: scale(1.05);
+        }
+
+        .zoom-account:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -34,20 +56,20 @@
             </div>
             <div class="col-md-8 p-5">
                 <div class="content-section">
-                    <div id="home" class="section p-4 bg-light rounded shadow mb-3">
+                    <div id="home" class="section p-4 bg-light rounded shadow mb-3 zoom-education">
                         <h2>Education</h2>
                         <p>2nd year College at PUP Sto. Tomas campus.</p>
                         <p>Diploma in Information Technology</p>
                     </div>
 
-                    <div id="contact" class="section p-4 bg-light rounded shadow mb-3">
+                    <div id="contact" class="section p-4 bg-light rounded shadow mb-3 zoom-email">
                         <h2>Email and Number</h2>
                         <p>exemplarcode@gmail.com</p>
                         <p>0993-883-6912</p>
                         <p>0936-880-9781</p>
                     </div>
 
-                    <div id="accounts" class="section p-4 bg-light rounded shadow mb-3">
+                    <div id="accounts" class="section p-4 bg-light rounded shadow mb-3 zoom-account">
                         <h2>Accounts</h2>
                         <p>
                             <a href="https://www.facebook.com/share/15QoTXnHbT/" target="_blank"
