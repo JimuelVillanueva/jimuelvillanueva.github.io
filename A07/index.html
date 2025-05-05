@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digimon Xros Heart Battle Cards</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #1e1e1e; 
+      color: #fff; 
+      font-family: 'Arial', sans-serif;
+    }
+    
+    .container {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .card-deck {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .card {
+      width: 18rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background-color: #333; 
+      border: 1px solid #444; 
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-body {
+      text-align: center;
+      background-color: #444; 
+      padding: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #ffcc00; 
+    }
+
+    .card-text {
+      color: #ccc; 
+    }
+
+    .badge {
+      font-size: 0.875rem;
+      margin: 0.25rem;
+    }
+
+    .floating-tab img {
+      width: 150px; 
+      height: auto;
+      margin: 1rem 0;
+      border-radius: 0.5rem;
+      object-fit: contain;
+    }
+
+    .floating-tab button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 1.25rem;
+      color: #ffcc00;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .floating-tab button:hover {
+      text-decoration: underline;
+    }
+
+    .floating-tab ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .floating-tab li {
+      padding: 0.5rem 0;
+    }
+
+    .floating-tab.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4" style="color: red; font-weight: 900;">Digimon Xros Heart</h1>
+        <div id="digimonCards" class="card-deck"></div>
+      </div>      
+<script>
+  const digimonData = [
+    {
+      name: "Shoutmon",
+      role: "Leader of Xros Heart",
+      image: "https://digimon.net/cimages/digimon/shoutmon_king.jpg",
+    },
+    {
+      name: "Dorulumon",
+      role: "Powerhouse Attacker",
+      image: "https://digimon.net/cimages/digimon/dorulumon.jpg",
+    },
+    {
+      name: "Ballistamon",
+      role: "Heavy Artillery Support",
+      image: "https://digimon.net/cimages/digimon/baristamon.jpg",
+    },
+    {
+      name: "Beelzebumon",
+      role: "Speedster and Sniper",
+      image: "https://digimon.net/cimages/digimon/beelzebumon-xwars.jpg",
+    },
+    {
+      name: "Knightmon",
+      role: "Loyal Warrior",
+      image: "https://digimon.net/cimages/digimon/knightmon.jpg",
+    },
+    {
+      name: "Sparrowmon",
+      role: "Aerial Recon and Support",
+      image: "https://digimon.net/cimages/digimon/sparrowmon.jpg",
+    }
+  ];
+
+  const digimonCardsContainer = document.getElementById('digimonCards');
+
+  digimonData.forEach(digimon => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `
+      <img src="${digimon.image}" class="card-img-top" alt="${digimon.name}">
+      <div class="card-body">
+        <h5 class="card-title">${digimon.name}</h5>
+        <p class="card-text">Role: ${digimon.role}</p>
+      </div>
+    `;
+
+    digimonCardsContainer.appendChild(card);
+  });
+</script>
+
+<div class="container text-center my-4">
+    <a href="../My Website/index.html" class="btn btn-secondary">Back to Gallery</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
