@@ -115,7 +115,6 @@
   <div class="container py-5">
     <h1 class="text-center mb-4" style="color: red; font-weight: 900;">Digimon Xros Heart</h1>
     
-    <!-- Search bar and button to show Xros Heart -->
     <div class="text-center mb-4">
       <input type="text" id="searchBar" class="form-control w-50 mx-auto" placeholder="Search for Digimon">
       <button class="btn btn-warning mt-3" id="showXrosHeartBtn">Show Xros Heart</button>
@@ -146,7 +145,6 @@
     const showXrosHeartBtn = document.getElementById('showXrosHeartBtn');
     const showAllDigimonsBtn = document.getElementById('showAllDigimonsBtn');
   
-    // Customized list of Xros Heart Digimons
     const xrosHeartDigimons = [
       { name: "Shoutmon", img: "https://digi-api.com/images/digimon/w/Shoutmon.png", level: "Champion" },
       { name: "Dorulumon", img: "https://digi-api.com/images/digimon/w/Dorulumon.png", level: "Champion" },
@@ -156,7 +154,6 @@
       { name: "Sparrowmon", img: "https://digi-api.com/images/digimon/w/Sparrowmon.png", level: "Champion" }
     ];
 
-    // Function to create and display cards for Digimons
     function createCard(digimon) {
       const card = document.createElement('div');
       card.classList.add('card');
@@ -170,7 +167,6 @@
       digimonCardsContainer.appendChild(card);
     }
 
-    // Function to show image modal
     function showImageModal(imageUrl) {
       floatingImage.src = imageUrl;
       floatingImageModal.style.display = 'block';
@@ -178,14 +174,12 @@
       document.body.style.overflow = 'hidden';
     }
 
-    // Function to close the image modal
     function closeImageModal() {
       floatingImageModal.style.display = 'none';
       modalOverlay.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
 
-    // Function to filter Digimons based on search input
     function filterDigimons(digimons) {
       const query = searchBar.value.toLowerCase();
       const filteredDigimons = digimons.filter(digimon => digimon.name.toLowerCase().includes(query));
@@ -193,52 +187,43 @@
       filteredDigimons.forEach(digimon => createCard(digimon));
     }
 
-    // Fetch data from API and display it
     function fetchDigimons() {
       fetch('https://digimon-api.vercel.app/api/digimon')
         .then(response => response.json())
         .then(data => {
-          // Apply search filter
           searchBar.addEventListener('input', () => filterDigimons(data));
 
-          // Render all the fetched Digimons
           data.forEach(digimon => createCard(digimon));
         })
         .catch(error => console.error('Error fetching Digimon data:', error));
     }
 
-    // Render Xros Heart Digimons when button is clicked
     function renderXrosHeart() {
-      digimonCardsContainer.innerHTML = ''; // Clear previous cards
+      digimonCardsContainer.innerHTML = ''; 
       xrosHeartDigimons.forEach(digimon => createCard(digimon));
 
-      // Show the "Show All Digimons" button after displaying Xros Heart Digimons
       showAllDigimonsBtn.style.display = 'inline-block';
     }
 
-    // Render all Digimons when button is clicked
     function renderAllDigimons() {
-      digimonCardsContainer.innerHTML = ''; // Clear previous cards
+      digimonCardsContainer.innerHTML = ''; 
       fetchDigimons();
       
-      // Hide the "Show All Digimons" button once
-      // Hide the "Show All Digimons" button once all Digimons are displayed
       showAllDigimonsBtn.style.display = 'none';
     }
 
-    // Event listener for "Show Xros Heart" button
     showXrosHeartBtn.addEventListener('click', () => {
       renderXrosHeart();
-      showXrosHeartBtn.style.display = 'none';  // Hide "Show Xros Heart" button once clicked
+      showXrosHeartBtn.style.display = 'none';  
     });
 
-    // Event listener for "Show All Digimons" button
+  
     showAllDigimonsBtn.addEventListener('click', () => {
       renderAllDigimons();
-      showXrosHeartBtn.style.display = 'inline-block'; // Show "Show Xros Heart" button again
+      showXrosHeartBtn.style.display = 'inline-block'; 
     });
 
-    // Initialize the page by loading Digimons
+ 
     fetchDigimons();
   </script>
 
