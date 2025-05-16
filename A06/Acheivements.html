@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="../img/Gallery.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acheivements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+
+        .card {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .card {
+            background-color: #333;
+            color: #fff;
+        }
+
+        body.dark-mode .card-img-top {
+            filter: brightness(0.7);
+        }
+
+        .row .card {
+            filter: none;
+        }
+
+        .card-blurred .card {
+            filter: blur(4px);
+        }
+
+        .card:hover {
+            filter: none;
+        }
+
+        .dark-mode-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 999;
+        }
+
+        .dark-mode-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    <div class="container-fluid p-3 mb-3" style="background-color: #28a745; color: white;">
+        <div class="h3 text-center">
+            Acheivements
+        </div>
+    </div>
+
+    <div class="container my-3">
+        <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <a href="recent.html" class="btn btn-outline-success">Recent</a>
+            <a href="Screenshots.html" class="btn btn-outline-success">Screenshots</a>
+            <a href="Memes.html" class="btn btn-outline-success">Memes</a>
+            <a href="Acheivements.html" class="btn btn-outline-success">Acheivements</a>
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <div class="row" id="card-container">
+        </div>
+    </div>
+
+    <div class="container text-center my-4">
+        <a href="../recent.html" class="btn btn-secondary">Back to Gallery</a>
+    </div>
+
+    <script>
+        const images = [
+            "../img/image37.jpg", "../img/image37.jpeg", "../img/image38.jpg", "../img/image39.jpg",
+            "../img/image40.jpg", "../img/image41.jpg", "../img/image42.jpg", "../img/image43.jpg",
+            "../img/image44.jpg", "../img/image45.jpg", "../img/image46.jpg", "../img/image15.jpg",
+            "../img/image17.jpg", "../img/image18.jpg"
+        ];
+
+        const container = document.getElementById('card-container');
+
+        images.forEach((src, index) => {
+            const card = document.createElement('div');
+            card.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-4');
+            card.innerHTML = `
+                <div class="card shadow">
+                    <img src="${src}" class="card-img-top" alt="Image ${index + 1}">
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-oP6y4+jj6+KobcsZyE9+VqOj3PBtcWxlmEOrlz7HzKbz6xd8g2Lk52zqgtlxufV1" crossorigin="anonymous">
+        </script>
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const cardContainer = document.getElementById('card-container');
+
+        cardContainer.addEventListener('mouseover', function (e) {
+            if (e.target.closest('.card')) {
+                cards.forEach(card => {
+                    if (card !== e.target.closest('.card')) {
+                        card.style.filter = 'blur(4px)';
+                    }
+                });
+            }
+        });
+
+        cardContainer.addEventListener('mouseout', function (e) {
+            if (e.target.closest('.card')) {
+                cards.forEach(card => card.style.filter = 'none');
+            }
+        });
+        function toggleDarkMode() {
+            const body = document.body;
+            const button = document.getElementById('dark-mode-toggle');
+
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                button.textContent = "🌙 Dark Mode";
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark-mode');
+                button.textContent = "🌞 Light Mode";
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        window.onload = function () {
+            const savedTheme = localStorage.getItem('theme');
+            const body = document.body;
+            const button = document.getElementById('dark-mode-toggle');
+
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                button.textContent = "🌞 Light Mode";
+            } else {
+                body.classList.remove('dark-mode');
+                button.textContent = "🌙 Dark Mode";
+            }
+
+            button.addEventListener('click', toggleDarkMode);
+        };
+    </script>
+
+</body>
+
+</html>
