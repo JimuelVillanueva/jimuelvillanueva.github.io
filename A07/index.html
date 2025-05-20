@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="../img/Xros.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Digimon Xros Heart</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <style>
     body {
-      background-color: #1e1e1e; 
-      color: #fff; 
+      background-color: #1e1e1e;
+      color: #fff;
       font-family: 'Arial', sans-serif;
       transition: background-color 0.3s ease;
     }
@@ -31,8 +33,8 @@
       border-radius: 0.5rem;
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      background-color: #333; 
-      border: 1px solid #444; 
+      background-color: #333;
+      border: 1px solid #444;
     }
 
     .card img {
@@ -42,19 +44,19 @@
 
     .card-body {
       text-align: center;
-      background-color: #444; 
+      background-color: #444;
       padding: 1rem;
     }
 
     .card-title {
       font-size: 1.25rem;
       font-weight: bold;
-      color: #ffcc00; 
+      color: #ffcc00;
       cursor: pointer;
     }
 
     .card-text {
-      color: #ccc; 
+      color: #ccc;
     }
 
     #floatingImageModal {
@@ -108,13 +110,13 @@
       z-index: 9998;
       display: none;
     }
-
   </style>
 </head>
+
 <body>
   <div class="container py-5">
     <h1 class="text-center mb-4" style="color: red; font-weight: 900;">Digimon Xros Heart</h1>
-    
+
     <div class="text-center mb-4">
       <input type="text" id="searchBar" class="form-control w-50 mx-auto" placeholder="Search for Digimon">
       <button class="btn btn-warning mt-3" id="showXrosHeartBtn">Show Xros Heart</button>
@@ -122,10 +124,10 @@
     </div>
 
     <div id="digimonCards" class="card-deck"></div>
-  </div>      
+  </div>
 
   <div class="container text-center my-4">
-    <a href="../index.html" class="btn btn-secondary">Back to Gallery</a>
+    <a href="../activities.html" class="btn btn-secondary">Back to Activities</a>
     <a href="https://digi-api.com/" class="btn btn-primary">View Digimon API</a>
   </div>
 
@@ -144,7 +146,7 @@
     const searchBar = document.getElementById('searchBar');
     const showXrosHeartBtn = document.getElementById('showXrosHeartBtn');
     const showAllDigimonsBtn = document.getElementById('showAllDigimonsBtn');
-  
+
     const xrosHeartDigimons = [
       { name: "Shoutmon", img: "https://digi-api.com/images/digimon/w/Shoutmon.png", level: "Champion" },
       { name: "Dorulumon", img: "https://digi-api.com/images/digimon/w/Dorulumon.png", level: "Champion" },
@@ -199,34 +201,36 @@
     }
 
     function renderXrosHeart() {
-      digimonCardsContainer.innerHTML = ''; 
+      digimonCardsContainer.innerHTML = '';
       xrosHeartDigimons.forEach(digimon => createCard(digimon));
 
       showAllDigimonsBtn.style.display = 'inline-block';
     }
 
     function renderAllDigimons() {
-      digimonCardsContainer.innerHTML = ''; 
+      digimonCardsContainer.innerHTML = '';
       fetchDigimons();
-      
+
       showAllDigimonsBtn.style.display = 'none';
     }
 
     showXrosHeartBtn.addEventListener('click', () => {
       renderXrosHeart();
-      showXrosHeartBtn.style.display = 'none';  
+      showXrosHeartBtn.style.display = 'none';
     });
 
-  
+
     showAllDigimonsBtn.addEventListener('click', () => {
       renderAllDigimons();
-      showXrosHeartBtn.style.display = 'inline-block'; 
+      showXrosHeartBtn.style.display = 'inline-block';
     });
 
- 
+
     fetchDigimons();
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-bf4e3b7bfbff75f0c9c826b8b3e92e6b147de4cc62d0f42adf510227b0c028d9" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-bf4e3b7bfbff75f0c9c826b8b3e92e6b147de4cc62d0f42adf510227b0c028d9"
+    crossorigin="anonymous"></script>
 </body>
 </html>
