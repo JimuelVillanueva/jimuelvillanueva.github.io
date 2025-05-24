@@ -18,30 +18,52 @@
     }
 
     body {
-      margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #f9f9f9;
-      color: #1E2A38;
+      margin: 0;
+      padding-top: 60px;
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      color: #f4f4f4;
     }
 
     .navbar-custom {
-      background: #1E2A38;
-      padding: 20px 40px;
+      background-color: #1E2A38;
+      padding: 10px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #A6E3E9;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-custom .logo img {
+      height: 40px;
     }
 
     .navbar-custom .nav-links a {
-      margin-left: 20px;
       text-decoration: none;
-      color: #CBF1F5;
-      font-weight: 500;
+      color: #A6E3E9;
+      font-weight: 600;
+      margin-left: 15px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
     }
 
+
     .navbar-custom .nav-links a:hover {
-      color: #A6E3E9;
+      color: #fff;
+    }
+
+    .navbar-custom .nav-links {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .navbar-custom .nav-links a {
+      margin-left: 15px;
     }
 
     .main {
@@ -122,22 +144,119 @@
       width: 100%;
       object-fit: cover;
     }
-  </style>
 
+    @media (max-width: 1200px) {
+      .main h1 {
+        font-size: 3rem;
+      }
+
+      .main p {
+        font-size: 1rem;
+      }
+
+      .social-bar {
+        top: 30%;
+        left: 15px;
+      }
+
+      .navbar-custom {
+        padding: 15px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main h1 {
+        font-size: 2.5rem;
+      }
+
+      .main p {
+        font-size: 1rem;
+      }
+
+      .navbar-custom {
+        padding: 15px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .navbar-custom .logo img {
+        height: 50px;
+      }
+
+      .navbar-custom .nav-links {
+        margin-top: 10px;
+      }
+
+      .content-section {
+        padding: 40px 15px;
+      }
+
+      .social-bar {
+        top: 25%;
+      }
+
+      .uniform-img {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .main h1 {
+        font-size: 2rem;
+      }
+
+      .main p {
+        font-size: 0.9rem;
+      }
+
+      .social-bar {
+        top: 20%;
+        left: 5px;
+      }
+
+      .uniform-img {
+        height: 200px;
+      }
+
+      .content-section .row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .navbar-custom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .navbar-custom .nav-links {
+        margin-top: 10px;
+
+        .navbar-custom .logo img {
+          height: 35px;
+        }
+
+        .navbar-custom .nav-links a {
+          font-size: 0.8rem;
+        }
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <div class="social-bar">
-    <a href="https://www.tiktok.com/@uncrowneddemonking?_t=ZS-8wUVu0xIHTg&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.tiktok.com/@uncrowneddemonking?_t=ZS-8wUVu0xIHTg&_r=1" target="_blank"><i
+        class="fab fa-tiktok"></i></a>
     <a href="https://www.instagram.com/_jimsterr/" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.facebook.com/share/15QoTXnHbT/" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://github.com/JimuelVillanueva/"><i class="fab fa-github"></i></a>
   </div>
 
   <div class="navbar-custom">
-    <div class="logo"></div>
+    <div class="logo">
+      <img src="img/Xros.png" alt="Logo">
+    </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>

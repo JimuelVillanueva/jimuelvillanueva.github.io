@@ -123,12 +123,12 @@
       <button class="btn btn-success mt-3" id="showAllDigimonsBtn" style="display: none;">Show All Digimons</button>
     </div>
 
-    <div id="digimonCards" class="card-deck"></div>
-  </div>
+    <div class="container text-center my-4">
+      <a href="../activities.html" class="btn btn-secondary">Back to Activities</a>
+      <a href="https://digi-api.com/" class="btn btn-primary">View Digimon API</a>
+    </div>
 
-  <div class="container text-center my-4">
-    <a href="../activities.html" class="btn btn-secondary">Back to Activities</a>
-    <a href="https://digi-api.com/" class="btn btn-primary">View Digimon API</a>
+    <div id="digimonCards" class="card-deck"></div>
   </div>
 
   <div class="modal-overlay" id="modalOverlay"></div>
@@ -164,8 +164,9 @@
         <div class="card-body">
           <span class="card-title" onclick="showImageModal('${digimon.img}')">${digimon.name}</span>
           <p class="card-text">Level: ${digimon.level}</p>
-        </div>
-      `;
+          <button class="btn btn-info mt-2" onclick="window.location.href='view.html?name=${encodeURIComponent(digimon.name)}'">View</button>
+    </div>
+  `
       digimonCardsContainer.appendChild(card);
     }
 
@@ -233,4 +234,5 @@
     integrity="sha384-bf4e3b7bfbff75f0c9c826b8b3e92e6b147de4cc62d0f42adf510227b0c028d9"
     crossorigin="anonymous"></script>
 </body>
+
 </html>
