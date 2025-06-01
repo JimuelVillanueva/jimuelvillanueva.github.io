@@ -7,6 +7,28 @@
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="parallax.css" />
 	<title>EZ | Banner</title>
+	<style>
+		
+		#parallax {
+			position: relative;
+			width: 100%;
+			height: 600px; 
+			overflow: hidden;
+			z-index: 1; 
+		}
+
+		.main-content {
+			position: relative;
+			z-index: 2;
+			padding: 40px;
+			background-color: white;
+			max-width: 800px;
+			margin: 20px auto; 
+			margin-top: 20px; 
+			font-family: Arial, sans-serif;
+			line-height: 1.6;
+		}
+	</style>
 </head>
 
 <body>
@@ -21,14 +43,11 @@
 			<div class="keyart_layer parallax" id="keyart-6" data-speed="49"></div>
 			<div class="keyart_layer parallax" id="keyart-7" data-speed="65"></div>
 			<div class="keyart_layer parallax" id="keyart-8" data-speed="70"></div>
-			<!--Front image, in sync with scroll, no need to parallax-->
-			<!--Add or Remove layers as needed - check Parallax.css for refrence-->
 		</div>
 	</section>
 
 	<section class="main-content">
-		<div style="padding: 40px; background-color: white; max-width: 800px; margin: auto; font-family: Arial, sans-serif; line-height: 1.6;">
-			
+		<div>
 			<div style="display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px;">
 				<img src="../A08/img/911_1.jpg" alt="Twin Towers Before Attack" style="width: 32%; height: auto; border-radius: 4px;">
 				<img src="../A08/img/911_2.jpg" alt="Moment of Impact" style="width: 32%; height: auto; border-radius: 4px;">
@@ -51,10 +70,7 @@
 			</p>
 		</div>
 	</section>
-	
-	
 
-	<!--Uses JQuery-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script type="text/javascript" src="js/parallax.js"></script>
 
