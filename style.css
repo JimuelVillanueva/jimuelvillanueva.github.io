@@ -520,7 +520,7 @@ h3 {
     font-size: 0.8rem;
     margin: 5px 0;
   }
-  
+
   .profile-container {
     max-width: 200px;
     height: 200px;
@@ -569,4 +569,18 @@ h3 {
 .feedback-section h2 {
   font-family: 'Ubuntu', sans-serif;
   color: #333;
+}
+
+.feedback-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+iframe {
+  max-width: 100%;
+  width: 120%;
+  height: 600px;
 }
